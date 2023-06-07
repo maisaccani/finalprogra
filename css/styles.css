@@ -14,3 +14,57 @@
     align-items: center;
     background-color: black
 }
+
+.buscador{
+    padding: 20px;
+    padding-right: 200px;
+    background-color:dimgray;
+    color:white;
+    border: dimgray;
+}
+
+.borderlupa{
+    padding: 20px;
+    background-color:none;
+    color: white;
+    border: none;
+}
+.lupa{
+    height: 50px;
+    width: 50px;
+}
+
+
+body{
+    background-color: black;
+}
+
+h1{
+    color:aliceblue;
+    font-family:'Times New Roman', Times, serif;
+    text-align:center;
+}
+
+h2{
+    color:aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+}
+
+.img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-bottom: 5%;
+    padding-top: 4%;
+}
+.paddingtopfooter{
+    padding-top: 1%;
+    color: aliceblue;
+}
+.logofooter{
+    width: 250px;
+}
