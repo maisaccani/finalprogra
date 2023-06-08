@@ -1,18 +1,26 @@
 * {
     font: 11pt;
+    
 }
-
+a{
+text-decoration: none;    
+}
+li{
+    list-style-type:none
+    }
 .logo {
     width: 250px;
 }
 
 .header {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     background-color: black
+
+
 }
 
 .buscador{
@@ -23,15 +31,44 @@
     border: dimgray;
 }
 
+.inicio{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    width: 250px;
+    height: 107px;
+}
+.iniciodos{
+    color: black;
+    display: inline;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background-color:white;
+    padding: 5px 15px;
+    font-size: 20px;
+    font-family: 'Francois One', sans-serif;
+    margin:0 5pxb ;
+}
+.barra{
+    display: flex;
+    }
 .borderlupa{
-    padding: 20px;
     background-color:none;
     color: white;
     border: none;
+    margin-left: 10px;
+}
+form{
+    display: flex;
 }
 .lupa{
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+    align-items: flex-end;
 }
 
 
