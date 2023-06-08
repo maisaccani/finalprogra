@@ -39,7 +39,7 @@ li{
     align-items: center;
     background-color: black;
     width: 250px;
-    height: 107px;
+    height: 100px;
 }
 .iniciodos{
     color: rgb(123, 37, 243);
@@ -47,7 +47,7 @@ li{
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    padding: 5px 15px;
+    padding: 15px 40px;
     font-size: 40px;
     font-family: 'Bebas Neue', sans-serif;
     margin:0 5pxb ;
