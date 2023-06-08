@@ -42,15 +42,14 @@ li{
     height: 107px;
 }
 .iniciodos{
-    color: black;
+    color: rgb(123, 37, 243);
     display: inline;
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    background-color:white;
     padding: 5px 15px;
-    font-size: 20px;
-    font-family: 'Francois One', sans-serif;
+    font-size: 40px;
+    font-family: 'Bebas Neue', sans-serif;
     margin:0 5pxb ;
 }
 .barra{
@@ -61,6 +60,7 @@ li{
     color: white;
     border: none;
     margin-left: 10px;
+    margin-right: 30px;
 }
 form{
     display: flex;
