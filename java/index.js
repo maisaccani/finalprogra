@@ -1,3 +1,21 @@
+let formulario = document.querySelector('.form')
+
+formulario.addEventListener("submit", function(event){
+  event.preventDefault()
+
+  if(input.value == ""){
+      alert("Este campo es obligatorio")
+    } else if(input.value.length < 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+      window.location = './search-results?search=' + input.value
+    }
+})
+
+
+
+
+
 // const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks";
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch (url)

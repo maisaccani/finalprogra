@@ -105,7 +105,35 @@ h2 {
     padding-left: 60px;
 }
 
+.artistas1 {
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
+}
 
+.foto_artista{
+    border-radius: 80px;
+    width: 150px;
+}
+
+.album1 {
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.foto_album{
+    border-radius: 80px;
+    width: 150px;
+}
 
 
 
