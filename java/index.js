@@ -21,7 +21,6 @@ fetch (url)
 
             <article class="bloque_nombre">
                 <a href="./detalle-artista.html?id=${arrayCanciones[i].artist.name}">${arrayCanciones[i].artist.name}</a>
-                <a href="./detalle-album.html?">${arrayCanciones[i].album.title}</a>
             </article>
          </article>`
 }

@@ -1,5 +1,5 @@
 * {
-    font: 11pt;
+    font: 14pt;
     
 }
 a{
@@ -8,6 +8,7 @@ text-decoration: none;
 li{
     list-style-type:none
     }
+
 .logo {
     width: 250px;
 }
@@ -72,36 +73,62 @@ form{
 }
 
 
+
+
+
+
+
+
+
 body{
     background-color: black;
 }
 
-h1{
-    color:aliceblue;
-    font-family:'Times New Roman', Times, serif;
-    text-align:center;
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: aliceblue;
+    padding-left: 20px;
+    Border: solid;
 }
 
-h2{
-    color:aliceblue;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: left;
+.canciones1 {
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
-.img{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: center;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    padding-bottom: 5%;
-    padding-top: 4%;
+    flex-direction: column;
+
 }
 .paddingtopfooter{
-    padding-top: 1%;
-    color: aliceblue;
+    font-family: 'Bebas Neue', sans-serif;
+    color: aliceblue; 
 }
 .logofooter{
-    width: 250px;
+    width: 200px;
 }
