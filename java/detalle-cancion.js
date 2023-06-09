@@ -11,6 +11,9 @@ formulario.addEventListener("submit", function(event){
       location.search = './search-results?search=' + input.value
     }
 })
+
+
+
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch(url)
 .then(function(response){
