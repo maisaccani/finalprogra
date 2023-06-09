@@ -37,7 +37,7 @@ canciones1.innerHTML= songs;
 
 //Artistas
 
-const url_artist = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/27"
+const url_artist = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/artists"
 
 fetch (url_artist)
 .then(function(response){
@@ -45,7 +45,7 @@ fetch (url_artist)
 })
 .then(function(data){
     console.log(data);
-    let arrayArtistas=data;
+    let arrayArtistas=data.data;
     // console.log(arrayCanciones);
 
     let artistas1= document.querySelector(".artistas1");
@@ -56,15 +56,15 @@ fetch (url_artist)
         <h3>
             <a class="nombre_artist" href="./detalle-artista.html?id=${arrayArtistas[i].id}">${arrayArtistas[i].name}</a>
         </h3>
-        <img src="${arrayArtistas[i].picture}" alt="${arrayArtistas[i].title}" class="foto_artista">
+        <img src="${arrayArtistas[i].picture}" alt="${arrayArtistas[i].name}" class="foto_artista">
 
-            <article class="bloque_nombre">
-                <a href="./detalle-artista.html?id=${arrayArtistas[i].name}">${arrayCanciones[i].name}</a>
-                <a href="./detalle-album.html?">${arrayArtistas[i].nb_album.title}</a>
+            <article class="bloque_artista">
+                <a href="./detalle-artista.html?id=${arrayArtistas[i].name}">${arrayArtistas[i].name}</a>
+                <a href="./detalle-album.html?">${arrayArtistas[i].type}</a>
             </article>
          </article>`
 }
-canciones1.innerHTML= artists;
+artistas1.innerHTML= artists;
 
 })
 .catch(function(error){
