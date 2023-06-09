@@ -8,7 +8,7 @@ formulario.addEventListener("submit", function(event){
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-      window.location = './search-results?search=' + input.value
+      location.search = './search-results?search=' + input.value
     }
 })
 
