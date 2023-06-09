@@ -84,7 +84,10 @@ body{
     background-color: black;
 }
 
-
+.fotocancion{
+    border-radius: 80px;
+    width: 150px;
+}
 h2 {
     font-family: 'Bebas Neue', sans-serif;
     color: aliceblue;
@@ -123,8 +126,9 @@ h2 {
     flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
-
+    border-top: 1px aliceblue solid;
 }
+
 .paddingtopfooter{
     font-family: 'Bebas Neue', sans-serif;
     color: aliceblue; 
