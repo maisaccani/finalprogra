@@ -1,12 +1,13 @@
-const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart";
+// const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks";
+const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch (url)
 .then(function(response){
     return response.json();
 })
 .then(function(data){
     console.log(data);
-    let arrayCanciones=data.tracks.data;
-    console.log(arrayCanciones);
+    let arrayCanciones=data.data;
+    // console.log(arrayCanciones);
 
     let canciones1= document.querySelector(".canciones1");
     let songs="";
