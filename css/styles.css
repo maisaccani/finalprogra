@@ -149,18 +149,28 @@ h2 {
 
 
 
-.footer {
+
+footer {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     flex-direction: column;
-    border-top: 1px aliceblue solid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.linea {
+    width: 100%;
+    border: none;
+    border-top: 1px solid aliceblue solid;
+    margin: 10px;
 }
 
 .paddingtopfooter{
     font-family: 'Bebas Neue', sans-serif;
     color: aliceblue; 
 }
+
 .logofooter{
     width: 200px;
 }
