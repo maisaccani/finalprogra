@@ -1,18 +1,19 @@
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//boton de busqueda
 let formulario = document.querySelector('.form')
 
-formulario.addEventListener("submit", function(event){
-  event.preventDefault()
-
+formulario.addEventListener("submit", function(e){
+  e.preventDefault()
+let value=input.value.length
   if(input.value == ""){
       alert("Este campo es obligatorio")
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-      location.search = './search-results?search=' + input.value
+    window.location = './search-results.js=' + input.value
     }
 })
+
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch(url)
 .then(function(response){
@@ -57,4 +58,4 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
->>>>>>> 8371eb67b6bc7cfcd4d5492297fe15d6c7db35e0
+//>>>>>>> 8371eb67b6bc7cfcd4d5492297fe15d6c7db35e0

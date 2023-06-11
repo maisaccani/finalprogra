@@ -1,3 +1,4 @@
+//boton de busqueda
 let formulario = document.querySelector('.form')
 
 formulario.addEventListener("submit", function(e){
@@ -8,15 +9,14 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    this.submit();
+    window.location = './search-results.js=' + input.value
     }
 })
 
 
 
 
-
-// const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks";
+//const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks";
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch (url)
 .then(function(response){
