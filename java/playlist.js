@@ -1,4 +1,17 @@
+//boton de busqueda
+let formulario = document.querySelector('.form')
 
+formulario.addEventListener("submit", function(e){
+  e.preventDefault()
+let value=input.value.length
+  if(input.value == ""){
+      alert("Este campo es obligatorio")
+    } else if(input.value.length < 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+    window.location = './search-results.js=' + input.value
+    }
+})
 
 
 // boton para aclarar

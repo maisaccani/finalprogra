@@ -156,21 +156,25 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    background-color: black;
+    margin-top: 60px;
 }
 
 .linea {
     width: 100%;
     border: none;
-    border-top: 1px solid aliceblue solid;
-    margin: 10px;
+    border-top: 1px solid aliceblue;
+    margin-top: 0px;
+    
 }
 
 .paddingtopfooter{
+    margin-top: 0px;
     font-family: 'Bebas Neue', sans-serif;
     color: aliceblue; 
 }
 
 .logofooter{
     width: 200px;
+    margin-bottom: 0px;
 }

@@ -1,15 +1,23 @@
+
+//boton de busqueda
 let formulario = document.querySelector('.form')
 
-formulario.addEventListener("submit", function(event){
-  event.preventDefault()
-
+formulario.addEventListener("submit", function(e){
+  e.preventDefault()
+let value=input.value.length
   if(input.value == ""){
       alert("Este campo es obligatorio")
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-      location.search = './search-results?search=' + input.value
+    window.location = './search-results.js=' + input.value
     }
+})
+
+const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+fetch(url_detalle_can)
+.then(function(response){
+    return response.json();
 })
 
 //NO SE SI ESTO ESTA BIEN
