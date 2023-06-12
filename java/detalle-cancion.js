@@ -1,16 +1,10 @@
-let formulario = document.querySelector('.form')
+let queryString = location.search
+let objetoId= new URLSearchParams(queryString);
+let id = objetoId.get("id");
 
-formulario.addEventListener("submit", function(event){
-  event.preventDefault()
+let detalle = document.querySelector(".canciones1");
+let contenido = " ";
 
-  if(input.value == ""){
-      alert("Este campo es obligatorio")
-    } else if(input.value.length < 3){
-      alert("Este campo tiene que tener al menos 3 caracteres")
-    } else {
-      location.search = './search-results?search=' + input.value
-    }
-})
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch(url)
 .then(function(response){
