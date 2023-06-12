@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 let formulario = document.querySelector('.form')
 
 formulario.addEventListener("submit", function(event){
@@ -13,31 +11,67 @@ formulario.addEventListener("submit", function(event){
       location.search = './search-results?search=' + input.value
     }
 })
-const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+
+//NO SE SI ESTO ESTA BIEN
+// const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+// fetch(url)
+// .then(function(response){
+//     return response.json();
+// })
+
+// .then(function(data){
+//     console.log(data);
+//     let canciones1= document.querySelector(".canciones1");
+//     let arrayCanciones=data.data;
+//     let songs="";
+
+//     for(let i=0; i<5;i++){
+
+//         songs+= `<article class="lista_song">
+//         <img src="${arrayCanciones[i].artist.picture}" alt="${arrayCanciones[i].title}" class="fotocancion">
+//         <h2> ${arrayCanciones[i].artist.name} </h2>
+//         <h3> ${arrayCanciones[i].artist.name} </h3>`
+//     }
+//     canciones1.innerHTML= songs;
+// })
+// .catch(function(error){
+//     console.log( "Error: " + error);
+// })
+
+let qs= location.search;
+let qsToObject = new URLSearchParams(qs);
+let cancion= qsToObject.get('id');
+let nombreCancion= document.querySelector(".nombre_cancion")
+let titulo= document.querySelector(".titulo_detalle")
+
+let tituloResultados = document.querySelector("h1")
+tituloResultados.innerText += `${cancion.title}` 
+
+let url =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
 fetch(url)
-.then(function(response){
-    return response.json();
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data);
+        let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+        let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
+                <img src="${data.album.cover}" alt="${data.title}"> 
+                <article class="bloque-cancion-datos">
+                   <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
+                   <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
+                </article>
+                <form action="./playlist.html" method="GET">
+                <button class="agregar_favs" type="submit">Añadir a favoritos</button>
+                </form>
+        </article>`
+        contenedorCancion.innerHTML= cancion;
+        titulo.innerText= `Detalles de la canción: ${data.title}`
+
+    })
+.catch(function(e){
+    console.log(e);
 })
-
-.then(function(data){
-    console.log(data);
-    let canciones1= document.querySelector(".canciones1");
-    let arrayCanciones=data.data;
-    let songs="";
-
-    for(let i=0; i<5;i++){
-
-        songs+= `<article class="lista_song">
-        <img src="${arrayCanciones[i].artist.picture}" alt="${arrayCanciones[i].title}" class="fotocancion">
-        <h2> ${arrayCanciones[i].artist.name} </h2>
-        <h3> ${arrayCanciones[i].artist.name} </h3>`
-    }
-    canciones1.innerHTML= songs;
-})
-.catch(function(error){
-    console.log( "Error: " + error);
-})
-
 
 
 
@@ -57,4 +91,3 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
->>>>>>> 8371eb67b6bc7cfcd4d5492297fe15d6c7db35e0
