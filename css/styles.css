@@ -12,6 +12,27 @@ li{
 .logo {
     width: 250px;
 }
+.barra{
+    display: flex;
+    }
+.borderlupa{
+    background-color:none;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+form{
+    display: flex;
+}
+.lupa{
+    height: 30px;
+    width: 30px;
+    align-items: flex-end;
+}
+
+
+
 
 .header {
     display: flex;
@@ -20,8 +41,6 @@ li{
     flex-direction: row;
     align-items: center;
     background-color: black
-
-
 }
 
 .buscador{
@@ -51,29 +70,41 @@ li{
     padding: 15px 40px;
     font-size: 40px;
     font-family: 'Bebas Neue', sans-serif;
-    margin:0 5pxb ;
+    margin:0 5px ;
 }
-.barra{
+
+
+
+
+
+.titulo_detalle{
+    color: rgb(123, 37, 243);
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-top: 2.7%;
+    text-shadow: 3px 3px rgb(53, 34, 73);
+}
+
+.detalle-cancion{
     display: flex;
-    }
-.borderlupa{
-    background-color:none;
-    color: white;
-    border: none;
-    margin-left: 10px;
-    margin-right: 30px;
-}
-form{
-    display: flex;
-}
-.lupa{
-    height: 30px;
-    width: 30px;
-    align-items: flex-end;
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
+    flex-direction: column;
+    color: aliceblue;
+    margin-left: 30%;
 }
 
+.img-cancion-detalle{
+    border: 1px solid rgb(186, 186, 186);
+    height: 350px;
+    width: 300px;
+    float: left;
+    margin-left: 3%;
+}
 
-
+.agregar_favs {
+    margin-top: 4%;
+}
 
 
 
@@ -157,7 +188,7 @@ footer {
     justify-content: center;
     text-align: center;
     background-color: black;
-    margin-top: 60px;
+    margin-top: 10%;
 }
 
 .linea {

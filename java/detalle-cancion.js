@@ -57,29 +57,28 @@ tituloResultados.innerText += `${cancion.title}`
 
 let url =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
 fetch(url)
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(data){
-        console.log(data);
-        let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
-        let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
-                <img src="${data.album.cover}" alt="${data.title}"> 
-                <article class="bloque-cancion-datos">
-                   <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
-                   <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
-                </article>
-                <form action="./playlist.html" method="GET">
-                <button class="agregar_favs" type="submit">Añadir a favoritos</button>
-                </form>
-        </article>`
-        contenedorCancion.innerHTML= cancion;
-        titulo.innerText= `Detalles de la canción: ${data.title}`
-
-    })
-.catch(function(e){
-    console.log(e);
-})
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+    let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+    let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
+      <img src="${data.album.cover}" alt="${data.title}"> 
+      <article class="bloque-cancion-datos">
+        <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
+        <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
+      </article>
+      <form action="./playlist.html" method="GET">
+        <button class="agregar_favs" type="submit">Añadir a favoritos</button>
+      </form>
+    </article>`
+    contenedorCancion.innerHTML= cancion;
+    titulo.innerText= `Detalles de la canción: ${data.title}`
+  })
+  .catch(function(e){
+   console.log(e);
+  })
 
 
 
@@ -87,15 +86,18 @@ fetch(url)
 let botonclaro = document.querySelector('.botonclaro');
 let body = document.querySelector('body');
 let h2 = document.querySelector('h2');
+let h1 = document.querySelector('h1');
 
 botonclaro.addEventListener('click', function() {
   if (botonclaro.innerText == 'aclarar fondo') {
     botonclaro.innerText = 'oscurecer fondo';
     body.style.background = '#FFF';
     h2.style.color = '#000';
+    h1.style.color = '#000';
   } else {
     botonclaro.innerText = 'aclarar fondo';
     body.style.background = '#000';
-    h2.style.color = '#FFF';
+    h1.style.color = '#FFF';
+    h1.style.color = '#FFF';
   }
 });
