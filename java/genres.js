@@ -1,8 +1,8 @@
 //boton de busqueda
-let formulario = document.querySelector('.form')
+let formulario = document.querySelector('form')
 
-formulario.addEventListener("submit", function(e){
-  e.preventDefault()
+formulario.addEventListener("submit", function(event){
+  event.preventDefault()
 let value=input.value.length
   if(input.value == ""){
       alert("Este campo es obligatorio")
