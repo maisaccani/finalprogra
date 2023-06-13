@@ -14,11 +14,11 @@ let value=input.value.length
     }
 })
 
-const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
-fetch(url_detalle_can)
-.then(function(response){
-    return response.json();
-})
+// const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+// fetch(url_detalle_can)
+// .then(function(response){
+//     return response.json();
+// })
 
 //NO SE SI ESTO ESTA BIEN
 // const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
@@ -55,7 +55,7 @@ let titulo= document.querySelector(".titulo_detalle")
 let tituloResultados = document.querySelector("h1")
 tituloResultados.innerText += `${cancion.title}` 
 
-let url =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
+let url =`https://cors-anywhere.herokuapp.com/https://https://api.deezer.com/track/${cancion}`
 fetch(url)
   .then(function(response){
     return response.json();
