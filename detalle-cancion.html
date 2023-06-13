@@ -21,26 +21,46 @@
                 <li><a class="iniciodos" href="./index.html">HOME</a></li>
                 <li><a class="iniciodos" href="./playlist.html">FAVORTIOS</a></li>
                 <li><a class="iniciodos" href="./genres.html">GENERO</a></li>
-
             </ul>
-        
         </nav>
-<section class="barra">
-    <form>
-        <input type="text" id="input" placeholder="Buscar en studio music" class=" Buscador">
-        <buttom type=" Submmit" id=" search" class="borderlupa">
-            <img src="./img/lupa.png" class="lupa">
-        </buttom>
-    </form>
-</section>
+        <section class="barra">
+            <form>
+                <input type="text" id="input" placeholder="Buscar en studio music" class=" Buscador">
+                <buttom type=" Submmit" id=" search" class="borderlupa">
+                    <img src="./img/lupa.png" class="lupa">
+                </buttom>
+            </form>
+        </section>
     </header>  
+    
+    <button class="botonclaro">aclarar fondo</button>
     <!-- falta agregar section class y js -->
-    <button class="Bottondark">Aclarar fondo</button>  
+    
+    <section>
+      <h2 class="titulo_detalle">detalles de la canción</h1>
+        <section class="contenedor_detail_canciones">
+            <img class="img-cancion-detalle" src="" alt="Nombre del disco">
+            <article class="detalle-cancion">
+                <h3 class="nombre_cancion">Nombre canción</h3>
+                <p>Nombre artista</p>
+                <p>Disco: nombre del disco</p>
+                <form action="./playlist.html" method="GET">
+                    <button class="agregar_favs" type="submit">Añadir a favoritos</button>
+                </form>
+                <p> Link para ver la playlist personal /?</p>
+            </article> 
+        </section>
+    </section>
+
+
+
+
     <footer>
         <hr class="linea">
         <a class="footerpadding" href="./index.html"><img src="./img/logo.jpg" alt= "" class="logofooter"></a>
         <h4 class="paddingtopfooter"> Maitena Saccani, Jazmin Sanchez, Trinidad Diaz Mantel</h4>
     </footer>
-<script src="./java/detalle-cancion.js"></script>
+
+    <script src="./java/detalle-cancion.js"></script>
 </body>
 </html>
