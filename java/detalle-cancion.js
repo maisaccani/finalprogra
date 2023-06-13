@@ -7,25 +7,25 @@ let contenido = " ";
 
 
 //boton de busqueda
-let formulario = document.querySelector('.form')
+let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
-let value=input.value.length
-  if(input.value == ""){
-      alert("Este campo es obligatorio")
-    } else if(input.value.length < 3){
-      alert("Este campo tiene que tener al menos 3 caracteres")
-    } else {
+  let value = input.value.length
+  if (input.value == "") {
+    alert("Este campo es obligatorio")
+  } else if (input.value.length < 3) {
+    alert("Este campo tiene que tener al menos 3 caracteres")
+  } else {
     window.location = './search-results.js=' + input.value
-    }
+  }
 })
 
 const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch(url_detalle_can)
-.then(function(response){
+  .then(function (response) {
     return response.json();
-})
+  })
 
 //NO SE SI ESTO ESTA BIEN
 // const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
@@ -53,23 +53,23 @@ fetch(url_detalle_can)
 //     console.log( "Error: " + error);
 // })
 
-let qs= location.search;
+let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
-let cancion= qsToObject.get('id');
-let nombreCancion= document.querySelector(".nombre_cancion")
-let titulo= document.querySelector(".titulo_detalle")
+let cancion = qsToObject.get('id');
+let nombreCancion = document.querySelector(".nombre_cancion")
+let titulo = document.querySelector(".titulo_detalle")
 
 let tituloResultados = document.querySelector("h1")
-tituloResultados.innerText += `${cancion.title}` 
+tituloResultados.innerText += `${cancion.title}`
 
-let url =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
+let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
 fetch(url)
-  .then(function(response){
+  .then(function (response) {
     return response.json();
   })
-  .then(function(data){
+  .then(function (data) {
     console.log(data);
-    let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+    let contenedorCancion = document.querySelector(".contenedor_detail_canciones");
     let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
       <img src="${data.album.cover}" alt="${data.title}"> 
       <article class="bloque-cancion-datos">
@@ -80,31 +80,41 @@ fetch(url)
         <button class="agregar_favs" type="submit">Añadir a favoritos</button>
       </form>
     </article>`
-    contenedorCancion.innerHTML= cancion;
-    titulo.innerText= `Detalles de la canción: ${data.title}`
+    contenedorCancion.innerHTML = cancion;
+    titulo.innerText = `Detalles de la canción: ${data.title}`
   })
-  .catch(function(e){
-   console.log(e);
+  .catch(function (e) {
+    console.log(e);
   })
 
 
 
 // boton para aclarar
+//let botonclaro = document.querySelector('.botonclaro');
+//let body = document.querySelector('body');
+//let h3 = document.querySelector('h3');
 let botonclaro = document.querySelector('.botonclaro');
-let body = document.querySelector('body');
-let h2 = document.querySelector('h2');
-let h1 = document.querySelector('h1');
+let section = document.querySelector('.detalles1');
+let h2 = document.querySelector('.titulo_detalle');
+let img = document.querySelector('.img-cancion-detalle');
+let h3 = document.querySelector('.nombre_cancion');
 
-botonclaro.addEventListener('click', function() {
-  if (botonclaro.innerText == 'aclarar fondo') {
+
+botonclaro.addEventListener('click', function () {
+  if (botonclaro.innerText === 'aclarar fondo') {
     botonclaro.innerText = 'oscurecer fondo';
-    body.style.background = '#FFF';
+    detalles1.style.background = '#FFF';
     h2.style.color = '#000';
-    h1.style.color = '#000';
+    img.style.border = '1px solid #000';
+    h3.style.color = '#000';
+
   } else {
     botonclaro.innerText = 'aclarar fondo';
-    body.style.background = '#000';
-    h1.style.color = '#FFF';
-    h1.style.color = '#FFF';
+    detalles1.style.background = '#000';
+    h2.style.color = '#FFF';
+    img.style.border = '1px solid #FFF';
+    h3.style.color = '#FFF';
+
   }
 });
+
