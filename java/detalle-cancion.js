@@ -128,3 +128,23 @@ botonclaro.addEventListener('click', function () {
   }
 });
 
+let linkFavs = document.querySelector('a');
+
+let recuperoStorage = localStorage.getItem('listaFavoritos');
+let storageToArray = JSON.parse(recuperoStorage);
+
+let gifFavoritos = [];
+
+if(recuperoStorage !== null){
+    gifFavoritos = storageToArray
+}
+linkFavs.addEventListener('click', function(e){
+  e.preventDefault();
+
+  gifFavoritos.push(id);
+  gifsAJson = JSON.stringify(gifFavoritos);
+  localStorage.setItem("listaFavoritos", gifsAJson)
+
+  console.log(localStorage);
+})
+
