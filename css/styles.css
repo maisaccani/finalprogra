@@ -203,7 +203,7 @@ h2 {
   
   .nombre_artista {
     text-decoration: none;
-    color: #fff;
+    color: rgb(123, 37, 243);
     font-weight: bold;
     font-family: 'Oswald', sans-serif;
   }

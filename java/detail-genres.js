@@ -61,3 +61,5 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
+
+
