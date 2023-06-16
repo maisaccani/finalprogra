@@ -81,7 +81,7 @@ form{
     text-shadow: 2px 2px rgb(104, 48, 183);
 }
 
-.detalle-cancion{
+.detalle-cancion, .detalle-artist, .nombre_artist{
     display: flex;
     font-family: 'Oswald', sans-serif;
     text-align: left;
@@ -90,7 +90,7 @@ form{
     margin-left: 30%;
 }
 
-.img-cancion-detalle{
+.img-cancion-detalle, .img-artist-detalle{
     border: 1px solid rgb(186, 186, 186);
     height: 350px;
     width: 300px;

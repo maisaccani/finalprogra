@@ -1,3 +1,10 @@
+let queryString = location.search
+let objetoId= new URLSearchParams(queryString);
+let id = objetoId.get("id");
+
+let detalle = document.querySelector(".canciones1");
+let contenido = " ";
+
 
 // //boton de busqueda
 // let formulario = document.querySelector('.form')
@@ -19,6 +26,26 @@
 // .then(function(response){
 //     return response.json();
 // })
+//boton de busqueda
+let formulario = document.querySelector('form')
+
+formulario.addEventListener("submit", function(e){
+  e.preventDefault()
+  let value = input.value.length
+  if (input.value == "") {
+    alert("Este campo es obligatorio")
+  } else if (input.value.length < 3) {
+    alert("Este campo tiene que tener al menos 3 caracteres")
+  } else {
+    window.location = './search-results.js=' + input.value
+  }
+})
+
+const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+fetch(url_detalle_can)
+  .then(function (response) {
+    return response.json();
+  })
 
 //NO SE SI ESTO ESTA BIEN
 // const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
@@ -46,25 +73,30 @@
 //     console.log( "Error: " + error);
 // })
 
-let qs= location.search;
+let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
-let cancion= qsToObject.get('id');
-let nombreCancion= document.querySelector(".nombre_cancion")
-let titulo= document.querySelector(".titulo_detalle")
+let cancion = qsToObject.get('id');
+let nombreCancion = document.querySelector(".nombre_cancion")
+let titulo = document.querySelector(".titulo_detalle")
 
-let tituloResultados = document.querySelector("h2")
+let tituloResultados2 = document.querySelector("h2")
 tituloResultados.innerText += `${cancion.title}` 
+let tituloResultados = document.querySelector("h1")
+tituloResultados.innerText += `${cancion.title}`
 
-let url =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
+let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
 fetch(url)
-  .then(function(response){
+  .then(function (response) {
     return response.json();
   })
-  .then(function(data){
+  .then(function (data) {
     console.log(data);
-    let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
-    let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.id.artist.name}</a></h3>
-      <img src="${data.data.picture}" alt="${data.name}"> 
+    // let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+    // let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.id.artist.name}</a></h3>
+    //   <img src="${data.data.picture}" alt="${data.name}"> 
+    let contenedorCancion = document.querySelector(".contenedor_detail_canciones");
+    let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
+      <img src="${data.album.cover}" alt="${data.title}"> 
       <article class="bloque-cancion-datos">
         <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
         <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
@@ -73,9 +105,11 @@ fetch(url)
     </article>`
     contenedorCancion.innerHTML= cancion;
     titulo.innerText= `Detalles de la canción: ${data.title_short}`
+    // contenedorCancion.innerHTML = cancion;
+    // titulo.innerText = `Detalles de la canción: ${data.title}`
   })
-  .catch(function(e){
-   console.log(e);
+  .catch(function (e) {
+    console.log(e);
   })
 
 
@@ -92,7 +126,8 @@ let img = document.querySelector('.img-cancion-detalle');
 let h3 = document.querySelector('.nombre_cancion');
 
 
-botonclaro.addEventListener('click', function() {
+
+botonclaro.addEventListener('click', function () {
   if (botonclaro.innerText === 'aclarar fondo') {
     botonclaro.innerText = 'oscurecer fondo';
     detalles1.style.background = '#FFF';

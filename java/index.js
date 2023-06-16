@@ -1,5 +1,5 @@
 //boton de busqueda
-let formulario = document.querySelector('.form')
+let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -144,3 +144,8 @@ botonclaro.addEventListener('click', function() {
       });
     }
   });
+
+
+  //url para playlist q no hay todavia
+
+  let favoritos1 = "https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/"

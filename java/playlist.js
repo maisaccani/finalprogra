@@ -1,5 +1,5 @@
 //boton de busqueda
-let formulario = document.querySelector('.form')
+let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -30,3 +30,14 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
+
+console.log('detalle');
+let qs = location.search;
+let qsObj= new URLSearchParams(qs);
+let id = qsObj.get('id')
+
+let favoritos1 = ''
+
+
+
+
