@@ -143,8 +143,18 @@ h2 {
     width: 150px;
 }
 
+.generos{
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3%;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: white;
 
-
+}
 
 
 

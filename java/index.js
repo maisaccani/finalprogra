@@ -16,7 +16,6 @@ let value=input.value.length
 
 
 
-//const url= "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks";
 const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
 fetch (url)
 .then(function(response){
