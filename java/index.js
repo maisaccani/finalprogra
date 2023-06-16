@@ -173,8 +173,7 @@ botonclaro.addEventListener('click', function() {
               </article>
            </article>`
   }
-  album1.innerHTML= album;
-  
+  listaContainer.innerHTML = favoritos1
   })
   .catch(function(error){
       console.log( "Error: " + error);
