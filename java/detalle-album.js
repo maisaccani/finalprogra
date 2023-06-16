@@ -72,4 +72,3 @@ botonclaro.addEventListener('click', function() {
   }
 });
 
-{}

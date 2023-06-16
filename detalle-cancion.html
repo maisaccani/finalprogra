@@ -37,21 +37,24 @@
     <!-- falta agregar section class y js -->
     
     <section class="detalles1">
-      <h2 class="titulo_detalle">Detalles de la canción</h2>
+        <h2 class="titulo_detalle">Detalles de la canción</h2>
+        <img class="img-cancion-detalle" src="" alt="Nombre del disco">
         <section class="contenedor_detail_canciones">
-            <img class="img-cancion-detalle" src="" alt="Nombre del disco">
-            <h3 class="nombre_cancion">Nombre canción</h3>
             <article class="detalle-cancion">
-                <p class="nombre_artista">Nombre artista</p>
-                <p class="nombre_album">Disco: nombre del disco</p>
-               
-                <!-- <a href=""> Link para ver la playlist personal /?</a> -->
+                <div class="nombre-cancion-container">
+                    <h3 class="nombre_artist">Nombre del artista:</h3>
+                    <h3 class="nombre_artista">Nombre:</h3>
+                </div>
+                <div class="nombre-album-container">
+                    <h3 class="album6">Disco:</h3>
+                    <h3 class="nombre_album">Nombre del disco:</h3>
+                </div>
             </article> 
-         
+            <form action="./playlist.html" method="GET">
+                <button class="agregar_favs" type="submit">Añadir a favoritos</button>
+            </form>
         </section>
-        <form action="./playlist.html" method="GET">
-                    <button class="agregar_favs" type="submit">Añadir a favoritos</button>
-                </form>
+        
     </section>
 
 

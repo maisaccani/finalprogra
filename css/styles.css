@@ -71,43 +71,7 @@ form{
 
 
 
-/* home/detalle */
-
-.titulo_detalle{
-    color: rgb(178, 145, 255);
-    font-size: 30px;
-    font-family: 'Bebas Neue', sans-serif;
-    margin-top: 2.7%;
-    text-shadow: 2px 2px rgb(104, 48, 183);
-}
-
-.detalle-cancion, .detalle-artist, .nombre_artist{
-    display: flex;
-    font-family: 'Oswald', sans-serif;
-    text-align: left;
-    flex-direction: column;
-    color: aliceblue;
-    margin-left: 30%;
-}
-
-.img-cancion-detalle, .img-artist-detalle{
-    border: 1px solid rgb(186, 186, 186);
-    height: 350px;
-    width: 300px;
-    float: left;
-    margin-left: 3%;
-}
-
-.agregar_favs {
-    margin-top: 4%;
-    margin-left: 4%;
-}
-
-
-
-
-
-
+/* home */
 body{
     background-color: black;
 }
@@ -144,7 +108,53 @@ h2 {
 }
 
 
-  /* Generos */
+/* Detalles */
+.titulo_detalle{
+    color: rgb(178, 145, 255);
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-top: 2.7%;
+    text-shadow: 2px 2px rgb(104, 48, 183);
+}
+
+.detalles1 {
+    color: aliceblue;
+    font-family: 'Oswald', sans-serif;
+}
+
+.contenedor_detail_artist, .contenedor_detail_canciones, .contenedor_detail_album{
+    margin-left: 30%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    margin-bottom: 20%;
+}
+
+
+.img-cancion-detalle, .img-artist-detalle, .img_foto_artista{
+    border: 1px solid rgb(186, 186, 186);
+    height: 350px;
+    width: 300px;
+    float: left;
+    margin-left: 3%;
+}
+
+.agregar_favs {
+    margin-top: 4%;
+}
+
+.nombre-artista-container, .nombre-cancion-container, .nombre-album-container {
+    display: flex;
+    align-items: center;
+}
+
+.nombre-artista-container h3 , .nombre-cancion-container h3, .nombre-album-container h3{
+    margin-right: 10px;
+}
+
+
+
+/* Generos */
 
   #generoCanciones {
     display: flex;
