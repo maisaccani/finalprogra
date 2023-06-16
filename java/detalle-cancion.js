@@ -105,7 +105,7 @@ fetch(url)
       .then(function (data) {
         console.log(data);
     
-       bloque_img.innerHTML=data.artist.picture;
+       bloque_img.src=data.artist.picture;
         
       })
       .catch(function (e) {
