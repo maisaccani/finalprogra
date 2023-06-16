@@ -144,3 +144,8 @@ botonclaro.addEventListener('click', function() {
       });
     }
   });
+
+
+  //url para playlist q no hay todavia
+
+  let favoritos1 = "https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/"

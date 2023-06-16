@@ -30,3 +30,14 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
+
+console.log('detalle');
+let qs = location.search;
+let qsObj= new URLSearchParams(qs);
+let id = qsObj.get('id')
+
+let favoritos1 = ''
+
+
+
+
