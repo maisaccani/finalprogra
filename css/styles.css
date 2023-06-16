@@ -1,6 +1,6 @@
 * {
     font: 14pt;
-    
+  /* header */  
 }
 a{
 text-decoration: none;    
@@ -71,7 +71,7 @@ form{
 
 
 
-
+/* home/detalle */
 
 .titulo_detalle{
     color: rgb(178, 145, 255);
@@ -144,47 +144,83 @@ h2 {
 }
 
 
+  /* Generos */
 
-
-.lista_genres {
+  #generoCanciones {
     display: flex;
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 15%;
+    margin-right: 15%;
+    flex-wrap: wrap;
+  }
+  
+  .lista_genres {
+    width: 35%;
+    height: 40%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    border-radius: 1%;
-    margin-bottom: 1.5%;
-    border-radius: 3%;
-    background-color: white;
+    background: linear-gradient(to right, #4e257b, #1f0d60);
+    border-radius: 10px;
+    margin-bottom: 3%;
   }
   
-  .nombre {
+  .nombregenero a {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+ 
+  .nombregenero a:hover {
+    color: blue;
+  }
+ 
+  
+  
+  
+  
+  /* Generos/ fotos y titulos */
+  
+  .artistas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .lista_artista {
+    width: 20%;
+    margin: 2.5%;
     text-align: center;
   }
   
-  .generos {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .generos:hover {
+  .nombre_artista:hover {
     color: blue;
   }
   
+  .nombre_artista {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  .foto_artista {
+    height: auto;
+    border-radius: 50%;
+  }
   
   
   
   
   
+  
 
 
-
-
-
-
-
-
-
+/* footer */
 footer {
     display: flex;
     flex-direction: column;

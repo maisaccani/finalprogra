@@ -29,7 +29,7 @@ fetch(urlArtistas)
     let artistasContainer = document.querySelector('.artistas-container');
     let artistasContent = '';
 
-    for (let i = 0; i < data.data.length; i++) {
+    for (let i = 0; i < 8; i++) {
       artistasContent += `
         <article class="lista_artista">
           <h3><a class="nombre_artista" href="./detalle-artista.html?id=${data.data[i].id}">${data.data[i].name}</a></h3>
