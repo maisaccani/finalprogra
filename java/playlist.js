@@ -36,7 +36,21 @@ let qs = location.search;
 let qsObj= new URLSearchParams(qs);
 let id = qsObj.get('id')
 
-let favoritos1 = ''
+let favoritos1 = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/${id}`
+fetch(favoritos1)
+.then.then(function(response){
+  return response.json();
+})
+.then(function(data){
+  console.log(data)
+
+  let imagen = document.querySelector('img');
+  imagen.src = data.data.images.original.url
+})
+  .catch(function(error){
+    console.log(error)
+})
+
 
 
 
