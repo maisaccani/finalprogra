@@ -1,32 +1,4 @@
-let queryString = location.search
-let objetoId= new URLSearchParams(queryString);
-let id = objetoId.get("id");
 
-let detalle = document.querySelector(".canciones1");
-let contenido = " ";
-
-
-// //boton de busqueda
-// let formulario = document.querySelector('.form')
-
-// formulario.addEventListener("submit", function(e){
-//   e.preventDefault()
-// let value=input.value.length
-//   if(input.value == ""){
-//       alert("Este campo es obligatorio")
-//     } else if(input.value.length < 3){
-//       alert("Este campo tiene que tener al menos 3 caracteres")
-//     } else {
-//     window.location = './search-results.js=' + input.value
-//     }
-// })
-
-// const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
-// fetch(url_detalle_can)
-// .then(function(response){
-//     return response.json();
-// })
-//boton de busqueda
 let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
@@ -41,77 +13,104 @@ formulario.addEventListener("submit", function(e){
   }
 })
 
-const url_detalle_can = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
-fetch(url_detalle_can)
-  .then(function (response) {
-    return response.json();
-  })
-
-//NO SE SI ESTO ESTA BIEN
-// const url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
-// fetch(url)
-// .then(function(response){
-//     return response.json();
-// })
-
-// .then(function(data){
-//     console.log(data);
-//     let canciones1= document.querySelector(".canciones1");
-//     let arrayCanciones=data.data;
-//     let songs="";
-
-//     for(let i=0; i<5;i++){
-
-//         songs+= `<article class="lista_song">
-//         <img src="${arrayCanciones[i].artist.picture}" alt="${arrayCanciones[i].title}" class="fotocancion">
-//         <h2> ${arrayCanciones[i].artist.name} </h2>
-//         <h3> ${arrayCanciones[i].artist.name} </h3>`
-//     }
-//     canciones1.innerHTML= songs;
-// })
-// .catch(function(error){
-//     console.log( "Error: " + error);
-// })
-
-
 
 // preguntar a ale que esta mal aca porque no me lee el titulo resultaods.innertext
 let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
 let cancion = qsToObject.get('id');
-let nombreCancion = document.querySelector(".nombre_cancion")
-let titulo = document.querySelector(".titulo_detalle")
+console.log(cancion);
+let nombreCancion = document.querySelector(".nombre_cancion");
+// let artista = document.querySelector(".nombre_artista");
+// let album = document.querySelector(".nombre_album");
 
-let tituloResultados2 = document.querySelector("h2")
-tituloResultados.innerText += `${cancion}` 
-let tituloResultados = document.querySelector("h1")
-tituloResultados.innerText += `${cancion}`
 
-let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
+let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`;
 fetch(url)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
     console.log(data);
-  let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
-  let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.id.artist.name}</a></h3>
-  <img src="${data.data.picture}" alt="${data.name}"> 
+
+    nombreCancion.innerText = data.title;
+    // artista.innerText=
     
-      <article class="bloque-cancion-datos">
-        <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
-        <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
-      </article>
+    
+  // let cancion1="";
+  // let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+  // cancion1 = `<article class= "bloque-cancion"> <h3> <a class="nombre_cancion" href="./detallecancion.html?id=${data.id.artist.name}">${data.artist.name}</a></h3>
+  // <img src="${data.id.cover}" alt="${data.title}"> 
+    
+  //     <article class="detalle-cancion">
+  //       <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
+  //       <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
+  //     </article>
       
-    </article>`
-    contenedorCancion.innerHTML= cancion;
-    titulo.innerText= `Detalles de la canción: ${data.title_short}`
+  //   </article>`
+  //   contenedorCancion.innerHTML="hgfhjdgfghj";
+  //   titulo.innerText= `Detalles de la canción: ${data.title}`
     // contenedorCancion.innerHTML = cancion;
     // titulo.innerText = `Detalles de la canción: ${data.title}`
   })
   .catch(function (e) {
     console.log(e);
   })
+     
+  
+  
+  let artista = document.querySelector(".nombre_artista");
+
+  let url1 = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`;
+  fetch(url1)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+  
+     artista.innerText=data.artist.name;
+      
+    })
+    .catch(function (e) {
+      console.log(e);
+    })
+
+
+
+    let album = document.querySelector(".nombre_album");
+
+    let url2 = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`;
+    fetch(url2)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    
+       album.innerText=data.album.title;
+        
+      })
+      .catch(function (e) {
+        console.log(e);
+      })
+
+
+      let bloque_img = document.querySelector(".img-cancion-detalle");
+
+    let url_img = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`;
+    fetch(url_img)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    
+       bloque_img.innerHTML=data.artist.picture;
+        
+      })
+      .catch(function (e) {
+        console.log(e);
+      })
 
 
 
