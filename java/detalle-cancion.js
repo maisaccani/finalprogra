@@ -73,6 +73,9 @@ fetch(url_detalle_can)
 //     console.log( "Error: " + error);
 // })
 
+
+
+// preguntar a ale que esta mal aca porque no me lee el titulo resultaods.innertext
 let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
 let cancion = qsToObject.get('id');
@@ -80,9 +83,9 @@ let nombreCancion = document.querySelector(".nombre_cancion")
 let titulo = document.querySelector(".titulo_detalle")
 
 let tituloResultados2 = document.querySelector("h2")
-tituloResultados.innerText += `${cancion.title}` 
+tituloResultados.innerText += `${cancion}` 
 let tituloResultados = document.querySelector("h1")
-tituloResultados.innerText += `${cancion.title}`
+tituloResultados.innerText += `${cancion}`
 
 let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`
 fetch(url)
@@ -91,12 +94,10 @@ fetch(url)
   })
   .then(function (data) {
     console.log(data);
-    // let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
-    // let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.id.artist.name}</a></h3>
-    //   <img src="${data.data.picture}" alt="${data.name}"> 
-    let contenedorCancion = document.querySelector(".contenedor_detail_canciones");
-    let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.title}</a></h3>
-      <img src="${data.album.cover}" alt="${data.title}"> 
+  let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
+  let cancion = `<article class= "bloque-cancion"> <h3> <a class="nombre-cancion" href="./detallecancion.html?id=${data.id}">${data.id.artist.name}</a></h3>
+  <img src="${data.data.picture}" alt="${data.name}"> 
+    
       <article class="bloque-cancion-datos">
         <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
         <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
@@ -111,6 +112,9 @@ fetch(url)
   .catch(function (e) {
     console.log(e);
   })
+
+
+
 
 
 
