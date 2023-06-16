@@ -1,9 +1,9 @@
 //boton de busqueda
-let search = new URLSearchParams(location.search);
+let busqueda = new URLSearchParams(location.search);
 let buscar = busqueda.get('buscar');
 let resultados = document.querySelector(".results");
 let contenido = ''
-titulo.innerHTML += buscar
+titulo.innerHTML += `${buscar}`
 
 fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
   .then(function(response){
@@ -11,8 +11,7 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${bus
   })
   .then(function(data){
     console.log(data);
-  })
-  let formulario = document.querySelector('form')
+    let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -22,11 +21,24 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    window.location = './search-results.js=' + input.value
+    window.location = './search-results.html?id=' + input.value
     }
   })
+})
+//   let formulario = document.querySelector('form')
+
+// formulario.addEventListener("submit", function(e){
+//   e.preventDefault()
+// let value=input.value.length
+//   if(input.value == ""){
+//       alert("Este campo es obligatorio")
+//     } else if(input.value.length < 3){
+//       alert("Este campo tiene que tener al menos 3 caracteres")
+//     } else {
+//     window.location = './search-results.js=' + input.value
+//     }
   
-  fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q${buscar}`)
+  fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
   .then(function(response){
     return response.json()
   })

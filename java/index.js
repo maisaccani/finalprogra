@@ -9,7 +9,7 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    window.location = './search-results.js=' + input.value
+    window.location = './search-results.html?id=' + input.value
     }
 })
 
