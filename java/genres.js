@@ -1,65 +1,41 @@
 //boton de busqueda
 let formulario = document.querySelector('form')
 
-formulario.addEventListener("submit", function(event){
+formulario.addEventListener("submit", function (event) {
   event.preventDefault()
-let value=input.value.length
-  if(input.value == ""){
-      alert("Este campo es obligatorio")
-    } else if(input.value.length < 3){
-      alert("Este campo tiene que tener al menos 3 caracteres")
-    } else {
+  let value = input.value.length
+  if (input.value == "") {
+    alert("Este campo es obligatorio")
+  } else if (input.value.length < 3) {
+    alert("Este campo tiene que tener al menos 3 caracteres")
+  } else {
     window.location = './search-results.js=' + input.value
-    }
+  }
 })
 
+let urlGenerosCanciones = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre";
+fetch(urlGenerosCanciones)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    let generoCancionesSection = document.getElementById("generoCanciones");
+    let generoCancionesContent = `<h2 class="titulos">GÉNEROS:</h2>`;
 
-let recuperoFavCancion = localStorage.getItem("cancionesFavs");
-let favoritoscancion = JSON.parse(recuperoFavCancion);
-console.log(favoritoscancion);
-let seccioncanciones = document.getElementById("seccioncanciones");
-let canciont = document.getElementById('cancion')
-
-
-if (favoritoscancion == null || favoritoscancion.length == 0) {
-  peliculasTitle.innerHTML = "No agregaste canciones a la sección de favoritos";
-} else {
-  let allcanciones = "";
-
-
-  for (let i = 0; i < favoritoscancion.length; i++) {
-    let urlcancion =
+    for (let i = 0; i < 5; i++) {
+      generoCancionesContent += `<article class="lista_genres">
+        <h3 class="nombre genero"><a class="generos" href="./detail-Genres.html?id=${data.data[i].id}">- ${data.data[i].name}</a></h3>
+        </article>`;
+    }
 
 
-    fetch(urlcancion)
-      .then(function(res) {
-        return res.json();
-      })
-      .then(function(data) {
-        console.log(data);
+    generoCancionesSection.innerHTML = generoCancionesContent;
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
 
 
-        let cancion = `<article class="lista_song">
-                            <h3>
-                                <a class="nombre_song" href="./detalle-cancion.html?id=${arrayCanciones[i].id}">${arrayCanciones[i].title}</a>
-                            </h3>
-                            <img src="${arrayCanciones[i].artist.picture}" alt="${arrayCanciones[i].title}" class="fotocancion">
-
-
-                                <article class="bloque_nombre">
-                                    <a href="./detalle-artista.html?id=${arrayCanciones[i].artist.name}">${arrayCanciones[i].artist.name}</a>
-                                </article>
-                            </article>`;
-        allcanciones += cancion;
-
-
-        seccioncanciones.innerHTML = allcanciones;
-      })
-      .catch(function(e) {
-        console.log(e);
-      });
-  }
-}
 
 
 
@@ -70,12 +46,15 @@ if (favoritoscancion == null || favoritoscancion.length == 0) {
 let botonclaro = document.querySelector('.botonclaro');
 let body = document.querySelector('body');
 
-botonclaro.addEventListener('click', function() {
+botonclaro.addEventListener('click', function () {
   if (botonclaro.innerText == 'aclarar fondo') {
     botonclaro.innerText = 'oscurecer fondo';
     body.style.background = '#FFF';
+    h2.style.color = '#000';
+    
   } else {
     botonclaro.innerText = 'aclarar fondo';
     body.style.background = '#000';
+    h2.style.color = '#FFF';
   }
 });
