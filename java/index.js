@@ -37,7 +37,7 @@ fetch (url)
         <img src="${arrayCanciones[i].artist.picture}" alt="${arrayCanciones[i].title}" class="fotocancion">
 
             <article class="bloque_nombre">
-                <a href="./detalle-artista.html?id=${arrayCanciones[i].artist.name}">${arrayCanciones[i].artist.name}</a>
+                <a href="./detalle-artista.html?id=${arrayCanciones[i].artist.id}">${arrayCanciones[i].artist.name}</a>
             </article>
          </article>`
 }
@@ -75,7 +75,7 @@ fetch (url_artist)
         <img src="${arrayArtistas[i].picture}" alt="${arrayArtistas[i].name}" class="foto_artista">
 
             <article class="bloque_artista">
-                <a href="./detalle-artista.html?id=${arrayArtistas[i].name}">${arrayArtistas[i].name}</a>
+                <a href="./detalle-artista.html?id=${arrayArtistas[i].id}">${arrayArtistas[i].name}</a>
                 <a href="./detalle-album.html?">${arrayArtistas[i].type}</a>
             </article>
          </article>`
@@ -111,7 +111,7 @@ fetch (url_album)
         <img src="${arrayAlbum[i].artist.picture}" alt="${arrayAlbum[i].artist.name}" class="foto_album">
 
             <article class="bloque_album">
-                <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.name}">${arrayAlbum[i].artist.name}</a>
+                <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
                 <a href="./detalle-album.html?">${arrayAlbum[i].artist.type}</a>
             </article>
          </article>`

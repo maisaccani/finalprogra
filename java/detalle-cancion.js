@@ -14,14 +14,11 @@ formulario.addEventListener("submit", function(e){
 })
 
 
-// preguntar a ale que esta mal aca porque no me lee el titulo resultaods.innertext
 let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
 let cancion = qsToObject.get('id');
 console.log(cancion);
 let nombreCancion = document.querySelector(".nombre_cancion");
-// let artista = document.querySelector(".nombre_artista");
-// let album = document.querySelector(".nombre_album");
 
 
 let url = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${cancion}`;
@@ -33,24 +30,7 @@ fetch(url)
     console.log(data);
 
     nombreCancion.innerText = data.title;
-    // artista.innerText=
-    
-    
-  // let cancion1="";
-  // let contenedorCancion= document.querySelector(".contenedor_detail_canciones");
-  // cancion1 = `<article class= "bloque-cancion"> <h3> <a class="nombre_cancion" href="./detallecancion.html?id=${data.id.artist.name}">${data.artist.name}</a></h3>
-  // <img src="${data.id.cover}" alt="${data.title}"> 
-    
-  //     <article class="detalle-cancion">
-  //       <a href="./detalle-album.html?id=${data.album.id}">${data.album.title}</a>
-  //       <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}</a> 
-  //     </article>
-      
-  //   </article>`
-  //   contenedorCancion.innerHTML="hgfhjdgfghj";
-  //   titulo.innerText= `Detalles de la canción: ${data.title}`
-    // contenedorCancion.innerHTML = cancion;
-    // titulo.innerText = `Detalles de la canción: ${data.title}`
+   
   })
   .catch(function (e) {
     console.log(e);
