@@ -143,22 +143,39 @@ h2 {
     width: 150px;
 }
 
-.generos{
+
+
+
+.lista_genres {
     display: flex;
     font-family: 'Oswald', sans-serif;
     text-align: center;
     flex-direction: row;
     justify-content: center;
-    margin-top: 3%;
-    padding: 1%;
-    border-radius: 10px;
+    border-radius: 1%;
+    margin-bottom: 1.5%;
+    border-radius: 3%;
     background-color: white;
-
-}
-
-
-
-
+  }
+  
+  .nombre {
+    text-align: center;
+  }
+  
+  .generos {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .generos:hover {
+    color: blue;
+  }
+  
+  
+  
+  
+  
+  
 
 
 

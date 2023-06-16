@@ -24,7 +24,7 @@ fetch(urlGenerosCanciones)
 
     for (let i = 0; i < 5; i++) {
       generoCancionesContent += `<article class="lista_genres">
-        <h3 class="nombre genero"><a class="generos" href="./detail-Genres.html?id=${data.data[i].id}">- ${data.data[i].name}</a></h3>
+        <h3 class="nombre genero"><a class="generos" href="./detail-Genres.html?id=${data.data[i].id}"> ${data.data[i].name}</a></h3>
         </article>`;
     }
 
