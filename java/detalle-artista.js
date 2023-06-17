@@ -76,29 +76,28 @@ fetch(urlAlbum)
 
 //albumes
 
-  let urlAlbumes =`https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artista}/albums`;
+let urlAlbumes = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artista}/albums`;
+let nombre_discos = document.querySelector(".lista_disco");
 
-  let nombre_discos = document.querySelector(".lista_disco");
-  
-  
-  fetch(urlAlbumes)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-          let albumes="";
-          let albumArray= data.data;
+fetch(urlAlbumes)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    let albumes = "";
+    let albumArray = data.data;
 
-          for(i=0; i<albumArray.length; i++){
-             albumes+= `<li><a href="./detalledisco.html?id=${albumArray[i].data}">${albumArray[i].title}</a></li>`
-          }
+    for (let i = 0; i < albumArray.length; i++) {
+      albumes += `<li><a href="./detalle-album.html?id=${albumArray[i].id}">${albumArray[i].title}</a></li>`;
+    }
 
-          nombre_discos.innerHTML= albumes;
-    })
-    .catch(function (e) {
-      console.log(e);
-    })
+    nombre_discos.innerHTML = albumes;
+  })
+  .catch(function (e) {
+    console.log(e);
+  });
+
 
 
 // boton para aclarar

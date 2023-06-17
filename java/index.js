@@ -108,40 +108,38 @@ artistas1.innerHTML= artists;
 })
 
 //ALBUMES
+const url_album = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums";
 
-const url_album = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums"
-
-fetch (url_album)
-.then(function(response){
+fetch(url_album)
+  .then(function(response) {
     return response.json();
-})
-.then(function(data){
+  })
+  .then(function(data) {
     console.log(data);
-    let arrayAlbum=data.data;
-    
+    let arrayAlbum = data.data;
 
-    let album1= document.querySelector(".album1");
-    let album="";
-    for(let i=0; i<5;i++){
-
-        album+= `<article class="lista_album">
+    let album1 = document.querySelector(".album1");
+    let album = "";
+    for (let i = 0; i < 5; i++) {
+      album += `<article class="lista_album">
         <h3>
-            <a class="nombre_album" href="./detalle-album.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
+          <a class="nombre_album" href="./detalle-album.html?id=${arrayAlbum[i].id}">${arrayAlbum[i].title}</a>
         </h3>
-        <img src="${arrayAlbum[i].artist.picture}" alt="${arrayAlbum[i].artist.name}" class="foto_album">
+        <img src="${arrayAlbum[i].cover}" alt="${arrayAlbum[i].title}" class="foto_album">
+        <article class="bloque_album">
+          <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
+        </article>
+      </article>`;
+    }
+    album1.innerHTML = album;
+  })
+  .catch(function(error) {
+    console.log("Error: " + error);
+  });
 
-            <article class="bloque_album">
-                <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
-                <a href="./detalle-album.html?">${arrayAlbum[i].artist.type}</a>
-            </article>
-         </article>`
-}
-album1.innerHTML= album;
 
-})
-.catch(function(error){
-    console.log( "Error: " + error);
-})
+
+
 
 // boton para aclarar
 let botonclaro = document.querySelector('.botonclaro');

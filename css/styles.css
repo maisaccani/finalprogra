@@ -3,21 +3,20 @@
   /* header */  
 }
 a{
-text-decoration: none;    
+    text-decoration: none;    
 }
 li{
     list-style-type:none
-    }
+}
 
 .logo {
     width: 250px;
 }
 .borderlupa{
     background-color:none;
-    color: white;
     border: none;
-    margin-left: 10px;
-    margin-right: 30px;
+    margin-left: 3.5%;
+    margin-right: 12px;
 }
 form{
     display: flex;
@@ -25,7 +24,7 @@ form{
 .lupa{
     height: 30px;
     width: 30px;
-    align-items: flex-end;
+    
 }
 .header {
     display: flex;
@@ -38,7 +37,7 @@ form{
 
 .buscador{
     padding: 20px;
-    padding-right: 200px;
+    margin-right: 250px;
     background-color:dimgray;
     color:white;
     border: dimgray;
@@ -73,13 +72,9 @@ form{
 
 /* home */
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
-.fotocancion{
-    border-radius: 80px;
-    width: 150px;
-}
 h2 {
     font-family: 'Bebas Neue', sans-serif;
     color: aliceblue;
@@ -92,21 +87,25 @@ h2 {
     font-family: 'Oswald', sans-serif;
     text-align: center;
     flex-direction: row;
-    justify-content: space-between;
-    padding-right: 60px;
-    padding-left: 60px;
+    justify-content: space-around;
+    padding-right: 6%;
+    padding-left: 6%;
 }
 
-.foto_artista{
+.foto_artista, .foto_album, .fotocancion{
     border-radius: 80px;
     width: 150px;
 }
 
-.foto_album{
-    border-radius: 80px;
-    width: 150px;
+.nombre_song,
+.nombre_artist, .nombre_album{
+  color: rgb(106, 24, 199);
 }
 
+.nombre_song:hover,
+.nombre_artist:hover, .nombre_album:hover {
+    color: blue;
+}
 
 /* Detalles */
 .titulo_detalle{
@@ -122,8 +121,8 @@ h2 {
     font-family: 'Oswald', sans-serif;
 }
 
-.contenedor_detail_artist, .contenedor_detail_canciones, .contenedor_detail_album{
-    margin-left: 30%;
+.contenedor_detail_artist, .contenedor_detail_canciones, .contenedor_detail_albums{
+    padding-left: 4%;
     display: flex;
     text-align: left;
     flex-direction: column;
@@ -131,10 +130,10 @@ h2 {
 }
 
 
-.img-cancion-detalle, .img-artist-detalle, .img_foto_artista{
+.img-cancion-detalle, .img-artist-detalle, .img_foto_artista, .img-album{
     border: 1px solid rgb(186, 186, 186);
-    height: 350px;
-    width: 300px;
+    height: 80%;
+    width: 25%;
     float: left;
     margin-left: 3%;
 }
@@ -152,6 +151,14 @@ h2 {
     margin-right: 10px;
 }
 
+.lista_canciones:hover, .nombre_disco:hover, .genero_disco:hover{
+    color: blue;
+
+}
+
+.lista_canciones{
+    color: rgb(68, 10, 122);
+}
 
 
 /* Generos */
@@ -258,4 +265,28 @@ footer {
 .logofooter{
     width: 200px;
     margin-bottom: 0px;
+}
+
+@media (max-width: 420px){
+    header div {
+        flex-direction: column;
+    }
+
+    header li {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .logo {
+        align-self: center;
+        padding: 0%;
+    }
+
+    .buscador {
+        padding-right: 50px;
+    }
+
+    .bordelupa {
+        display: none;
+    }
 }

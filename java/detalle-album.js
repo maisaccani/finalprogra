@@ -1,4 +1,3 @@
-
 //boton de busqueda
 let busqueda = new URLSearchParams(location.search);
 let buscar = busqueda.get('buscar');
@@ -35,99 +34,48 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${bus
   })
 
 
-let qs = location.search;
-let qsToObject = new URLSearchParams(qs);
-let album = qsToObject.get('id');
-console.log(album);
-let nombreAlbum = document.querySelector(".nombre_disco");
-let n_artista =document.querySelector(".n_artista");
-let genero =document.querySelector(".genero");
-let date =document.querySelector(".date");
-let li =document.querySelector(".li");
-let imagen =document.querySelector(".img-album-detalle");
-let contenedorDisco =document.querySelector(".contenedor_detail_album");
+  
 
-
-
-let img = document.querySelector(".img-album-detalle");
-let urlAlbum = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${album}`;
-fetch(urlAlbum)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    let canciones="";
-let arrayCanciones=data.tracks.data
-
-for(i=0;1<arrayCanciones.lenght;i++){
-  canciones+= `<li><a href="./detalle-album.html?id=${arrayCanciones[i].id}">${arrayCanciones[i].title}</a>`
-}
-console.log(canciones);
-let discoDatos=`<article class="detalle-cancion">
-    <img class="img-album-detalle" src="${data.cover}" alt="Nombre del disco">
-    <a class="nombre_disco" href="./detalle-album.html?id=${data.id}">${data.title}</a> 
-    <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}"</a>
-    <a href="./detail-genres.html?id=${data.artist.id}">${data.artist.name}"</a>
-    <p>Fecha de publicacion:${data.release_date}</p>
-    </article>
-    <p>Canciones del album:</p>
-    <ul>${canciones}</ul>`
-
-    contenedorDisco.innerHTML= discoDatos
+    let qs = location.search;
+    let qsToObject = new URLSearchParams(qs);
+    let album = qsToObject.get('id');
+    console.log(album);
     
-   
- })
-.catch(function (e) {
-console.log(e);
-})
-
-
-
-
-// boton para aclarar
-let botonclaro = document.querySelector('.botonclaro');
-let body = document.querySelector('body');
-let h2 = document.querySelector('h2');
-
-botonclaro.addEventListener('click', function() {
-  if (botonclaro.innerText == 'aclarar fondo') {
-    botonclaro.innerText = 'oscurecer fondo';
-    body.style.background = '#FFF';
-    h2.style.color = '#000';
-  } else {
-    botonclaro.innerText = 'aclarar fondo';
-    body.style.background = '#000';
-    h2.style.color = '#FFF';
-  }
-});
-
-let linkFavs = document.querySelector('.agregar_favs');
-
-let playlist = [];
-let recuperoStorage = localStorage.getItem('playlist');
-let storageToArray= JSON.parse(recuperoStorage);
-
-
-
-if (recuperoStorage != null) {
-    playlist = storageToArray;
-}
-
-if (playlist.includes(id)) {
-    botonFavs.innerText = 'Quitar de Favoritos'
-}
-
-botonFavs.addEventListener("click", function () {
-    if (playlist.includes(id)) {
-        let indice = playlist.indexOf(id)
-        playlist.splice(indice, 1);
-        botonFavs.innerText = 'Agregar a favorito'
-    } else {
-        playlist.push(id);
-        botonFavs.innerText = 'Quitar de favorito'
+    let urlAlbum = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${album}`;
+    
+    let nombreArtista = document.querySelector(".nombre_artist");
+    let nombreAlbum = document.querySelector(".nombre_disco");
+    let generoAlbum = document.querySelector(".genero_disco");
+    let listaCanciones = document.querySelector(".lista_canciones");
+    let imgAlbum = document.querySelector(".img-album");
+    
+    fetch(urlAlbum)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    
+        nombreArtista.innerText = data.artist.name;
+        nombreAlbum.innerText = data.title;
+        generoAlbum.innerText = data.genres.data[0].name;
+    
+        let canciones = "";
+        let cancionesArray = data.tracks.data;
+    
+        for (let i = 0; i < cancionesArray.length; i++) {
+          canciones += `<li onclick="mostrarDetalleCancion(${cancionesArray[i].id})">-${cancionesArray[i].title}</li>`;
+        }
+    
+        listaCanciones.innerHTML = canciones;
+        imgAlbum.src = data.cover_medium;
+        imgAlbum.alt = data.title;
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
+    
+    function mostrarDetalleCancion(cancionId) {
+      window.location.href = `detalle-cancion.html?id=${cancionId}`;
     }
-
-    let favsToString = JSON.stringify(playlist);
-    localStorage.setItem('playlist', favsToString)
-})
+    

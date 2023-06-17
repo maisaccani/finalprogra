@@ -35,39 +35,42 @@
 
     <button class="botonclaro">aclarar fondo</button>  
 
-
     <section class="detalles1">
         <h2 class="titulo_detalle">Detalles del album</h2>
-        <img class="img-album-detalle" src="" alt="Nombre del disco">
-          <section class="contenedor_detail_album">
-              <article class="detalle-cancion">
-              <img class="img-album-detalle" src="" alt="Nombre del disco">
-              <h3 class="nombre_disco">Nombre album</h3>
-              
-                  <a href="" class="n_artista">Nombre artista</a>
-                  <a herf class="genero">Genero del artista</a>
-                  <p class="date">Fecha de publicacion</p>
-                </article>
-                <h3>Canciones del album</h3>
-                  <ul class="ul_disco">
-                      <li class="li"></li>
-                      <li class="li"></li>
-                      <li class="li"></li>
+        <img class="img-album" src="" alt="">
+        <section class="contenedor_detail_albums">
+            <article class="detalle_album">
+                <div class="nombre-artista-container">
+                    <h3>Artista:</h3>
+                    <h3 class="nombre_artist">Nombre artista</h3>
+                </div>
+                <div class="nombre-artista-container">
+                    <h3>Nombre del álbum:</h3>
+                    <h3 class="nombre_disco">Nombre del álbum</h3>
+                </div>
+                <div class="nombre-artista-container">
+                    <h3>Género del álbum:</h3>
+                    <h3 class="genero_disco">Género del álbum</h3>
+                </div>
+                <div>
+                    <h3>Lista de canciones:</h3>
+                    <ul class="lista_canciones">
 
-                  </ul>
-                  <form action="./playlist.html" method="GET">
-                      <button class="agregar_favs" type="submit">Añadir a favoritos</button>
-                  </form>
-                  <p> Link para ver la playlist personal /?</p>
-          </section>
-      </section>
+                    </ul>
+                </div>
+            </article>
+            <form action="./playlist.html" method="GET">
+                <button class="agregar_favs" type="submit">Añadir a favoritos</button>
+            </form>
+        </section>
+    </section>
 
     <footer>
         <hr class="linea">
         <a class="footerpadding" href="./index.html"><img src="./img/logo.jpg" alt= "" class="logofooter"></a>
         <h4 class="paddingtopfooter">Maitena Saccani - Jazmin Sanchez - Trinidad Diaz Mantel</h4>
     </footer>
-    <script src="java/detalle-album.js"></script>
-    <script src="./java/forms.js"></script>
+    <script src="./java/detalle-album.js"></script>
+    
 </body>
 </html>

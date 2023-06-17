@@ -85,6 +85,3 @@ botonclaro.addEventListener('click', function() {
     });
   }
 });
-
-
-
