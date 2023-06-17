@@ -3,7 +3,7 @@ let busqueda = new URLSearchParams(location.search);
 let buscar = busqueda.get('buscar');
 let resultados = document.querySelector(".results");
 let contenido = ''
-titulo.innerHTML += `${buscar}`
+contenido.innerHTML += `${buscar}`
 
 fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
   .then(function(response){
@@ -51,7 +51,7 @@ botonclaro.addEventListener('click', function() {
   }
 });
 
-
+//no nos salio pero llegamos a esto
 let recuperoStorage= localStorage.getItem("playlist");
 let storageToArray= JSON.parse(recuperoStorage); 
 let favoritos= storageToArray
