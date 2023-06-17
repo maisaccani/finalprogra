@@ -1,7 +1,18 @@
 
 //boton de busqueda
+let busqueda = new URLSearchParams(location.search);
+let buscar = busqueda.get('buscar');
+let resultados = document.querySelector(".results");
+let contenido = ''
+titulo.innerHTML += `${buscar}`
 
-let formulario = document.querySelector('form')
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+    let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -11,10 +22,17 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    window.location = './search-results.js=' + input.value
+    window.location = './search-results.html?id=' + input.value
     }
+  })
 })
-
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+  })
 
 
 let qs = location.search;
@@ -26,8 +44,12 @@ let n_artista =document.querySelector(".n_artista");
 let genero =document.querySelector(".genero");
 let date =document.querySelector(".date");
 let li =document.querySelector(".li");
+let imagen =document.querySelector(".img-album-detalle");
+let contenedorDisco =document.querySelector(".contenedor_detail_album");
 
 
+
+let img = document.querySelector(".img-album-detalle");
 let urlAlbum = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${album}`;
 fetch(urlAlbum)
   .then(function (response) {
@@ -35,22 +57,30 @@ fetch(urlAlbum)
   })
   .then(function (data) {
     console.log(data);
-let albumDatos= `<article class="detalle-cancion">
-<img class="img-album-detalle" src="" alt="Nombre del disco">
-<h3 class="nombre_disco" href="./detalle-album.html?id=${data.id}">${data.title}</h3>
+    let canciones="";
+let arrayCanciones=data.tracks.data
 
-    <p class="n_artista">Nombre artista</p>
-    <p class="genero">Genero del artista</p>
-    <p class="date">Fecha de publicacion</p>
-  </article>`
+for(i=0;1<arrayCanciones.lenght;i++){
+  canciones+= `<li><a href="./detalle-album.html?id=${arrayCanciones[i].id}">${arrayCanciones[i].title}</a>`
+}
+console.log(canciones);
+let discoDatos=`<article class="detalle-cancion">
+    <img class="img-album-detalle" src="${data.cover}" alt="Nombre del disco">
+    <a class="nombre_disco" href="./detalle-album.html?id=${data.id}">${data.title}</a> 
+    <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}"</a>
+    <a href="./detail-genres.html?id=${data.artist.id}">${data.artist.name}"</a>
+    <p>Fecha de publicacion:${data.release_date}</p>
+    </article>
+    <p>Canciones del album:</p>
+    <ul>${canciones}</ul>`
+
+    contenedorDisco.innerHTML= discoDatos
     
-
-    nombreAlbum.innerHTML = data.title;
    
-  })
-  .catch(function (e) {
-    console.log(e);
-  })
+ })
+.catch(function (e) {
+console.log(e);
+})
 
 
 

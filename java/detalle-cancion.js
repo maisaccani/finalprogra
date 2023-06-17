@@ -1,17 +1,36 @@
+let busqueda = new URLSearchParams(location.search);
+let buscar = busqueda.get('buscar');
+let resultados = document.querySelector(".results");
+let contenido = ''
+titulo.innerHTML += `${buscar}`
 
-let formulario = document.querySelector('form')
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+    let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
-  let value = input.value.length
-  if (input.value == "") {
-    alert("Este campo es obligatorio")
-  } else if (input.value.length < 3) {
-    alert("Este campo tiene que tener al menos 3 caracteres")
-  } else {
-    window.location = './search-results.js=' + input.value
-  }
+let value=input.value.length
+  if(input.value == ""){
+      alert("Este campo es obligatorio")
+    } else if(input.value.length < 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+    window.location = './search-results.html?id=' + input.value
+    }
+  })
 })
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+  })
 
 
 let qs = location.search;
@@ -120,28 +139,34 @@ botonclaro.addEventListener('click', function() {
     }
 });
 
+let linkFavs = document.querySelector('.agregar_favs');
+
+let playlist = [];
+let recuperoStorage = localStorage.getItem('playlist');
+let storageToArray= JSON.parse(recuperoStorage);
 
 
 
-
-
-let linkFavs = document.querySelector('a');
-
-let recuperoStorage = localStorage.getItem('listaFavoritos');
-let storageToArray = JSON.parse(recuperoStorage);
-
-let gifFavoritos = [];
-
-if(recuperoStorage !== null){
-    gifFavoritos = storageToArray
+if (recuperoStorage != null) {
+    playlist = storageToArray;
 }
-linkFavs.addEventListener('click', function(e){
-  e.preventDefault();
 
-  gifFavoritos.push(id);
-  gifsAJson = JSON.stringify(gifFavoritos);
-  localStorage.setItem("listaFavoritos", gifsAJson)
+if (playlist.includes(id)) {
+    botonFavs.innerText = 'Quitar de Favoritos'
+}
 
-  console.log(localStorage);
+botonFavs.addEventListener("click", function () {
+    if (playlist.includes(id)) {
+        let indice = playlist.indexOf(id)
+        playlist.splice(indice, 1);
+        botonFavs.innerText = 'Agregar a favorito'
+    } else {
+        playlist.push(id);
+        botonFavs.innerText = 'Quitar de favorito'
+    }
+
+    let favsToString = JSON.stringify(playlist);
+    localStorage.setItem('playlist', favsToString)
 })
+
 

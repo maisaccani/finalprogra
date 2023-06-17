@@ -1,5 +1,17 @@
 //boton de busqueda
-let formulario = document.querySelector('form')
+let busqueda = new URLSearchParams(location.search);
+let buscar = busqueda.get('buscar');
+let resultados = document.querySelector(".results");
+let contenido = ''
+contenido.innerHTML += `${buscar}`
+
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+    let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -11,7 +23,15 @@ let value=input.value.length
     } else {
     window.location = './search-results.html?id=' + input.value
     }
+  })
 })
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+  })
 
 
 
@@ -147,34 +167,34 @@ botonclaro.addEventListener('click', function() {
 
   //url para playlist q no hay todavia
 
-  let favoritos1 = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/${id}`
-  fetch (favoritos1)
-  .then(function(response){
-      return response.json();
-  })
-  .then(function(data){
-      console.log(data);
-      letfavoritos1 =data.data;
+  // let favoritos1 = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/${id}`
+  // fetch (favoritos1)
+  // .then(function(response){
+  //     return response.json();
+  // })
+  // .then(function(data){
+  //     console.log(data);
+  //     letfavoritos1 =data.data;
       
   
-      let favoritos1= document.querySelector(".favoritos1");
-      let album="";
-      for(let i=0; i<5;i++){
+      // let favoritos1= document.querySelector(".favoritos1");
+      // let album="";
+      // for(let i=0; i<5;i++){
   
-          favoritos1+= `<article class="lista_favoritos">
-          <h3>
-              <a class="nombre_album" href="./detalle-album.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
-          </h3>
-          <img src="${arrayAlbum[i].artist.picture}" alt="${arrayAlbum[i].artist.name}" class="foto_album">
+      //     favoritos1+= `<article class="lista_favoritos">
+      //     <h3>
+      //         <a class="nombre_album" href="./detalle-album.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
+      //     </h3>
+      //     <img src="${arrayAlbum[i].artist.picture}" alt="${arrayAlbum[i].artist.name}" class="foto_album">
   
-              <article class="bloque_album">
-                  <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.name}">${arrayAlbum[i].artist.name}</a>
-                  <a href="./detalle-album.html?">${arrayAlbum[i].artist.type}</a>
-              </article>
-           </article>`
-  }
+      //         <article class="bloque_album">
+      //             <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.name}">${arrayAlbum[i].artist.name}</a>
+      //             <a href="./detalle-album.html?">${arrayAlbum[i].artist.type}</a>
+      //         </article>
+      //      </article>`
+  // }
   listaContainer.innerHTML = favoritos1
-  })
+  // })
   .catch(function(error){
       console.log( "Error: " + error);
   })

@@ -1,5 +1,17 @@
 //boton de busqueda
-let formulario = document.querySelector('form')
+let busqueda = new URLSearchParams(location.search);
+let buscar = busqueda.get('buscar');
+let resultados = document.querySelector(".results");
+let contenido = ''
+contenido.innerHTML += `${buscar}`
+
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+    let formulario = document.querySelector('form')
 
 formulario.addEventListener("submit", function(e){
   e.preventDefault()
@@ -9,15 +21,20 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    window.location = './search-results.js=' + input.value
+    window.location = './search-results.html?id=' + input.value
     }
+  })
+
+
+
 })
-
-
-
-let urlParams = new URLSearchParams(window.location.search);
-let genero_id = urlParams.get('id');
-
+fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data);
+  })
 
 let urlArtistas = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre/${genero_id}/artists`;
 fetch(urlArtistas)
