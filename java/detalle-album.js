@@ -31,7 +31,7 @@ let contenedorDisco =document.querySelector(".contenedor_detail_album");
 
 
 
-
+let img = document.querySelector(".img-album-detalle");
 let urlAlbum = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${album}`;
 fetch(urlAlbum)
   .then(function (response) {
@@ -47,6 +47,7 @@ for(i=0;1<arrayCanciones.lenght;i++){
 }
 console.log(canciones);
 let discoDatos=`<article class="detalle-cancion">
+    <img class="img-album-detalle" src="${data.cover}" alt="Nombre del disco">
     <a class="nombre_disco" href="./detalle-album.html?id=${data.id}">${data.title}</a> 
     <a href="./detalle-artista.html?id=${data.artist.id}">${data.artist.name}"</a>
     <a href="./detail-genres.html?id=${data.artist.id}">${data.artist.name}"</a>
@@ -56,8 +57,8 @@ let discoDatos=`<article class="detalle-cancion">
     <ul>${canciones}</ul>`
 
     contenedorDisco.innerHTML= discoDatos
-    titulo.innerText=`Detalles del album: ${data.title}`
-
+    
+   
  })
 .catch(function (e) {
 console.log(e);
