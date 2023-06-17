@@ -27,13 +27,21 @@
         </nav>
 
         <section class="barra">
+            <form id="buscador" class="form" action="./search-results.html" method="GET">
+            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
+            <button id="enviarform" class="borderlupa" type="submit">
+                <img src="./img/lupa.png" class="lupa">
+            </button>
+            </form>
+        </section>
+        <!-- <section class="barra">
             <form class="form" action="./search-results.html" method="get">
                 <input type="text" id="input" placeholder="Buscar en studio music" class="Buscador" value="">
                 <buttom type="submmit" id="search" class="borderlupa">
                     <img src="./img/lupa.png" class="lupa">
                 </buttom>
             </form>
-        </section>
+        </section> -->
     </header>
   
     <button class="botonclaro">aclarar fondo</button>
@@ -96,5 +104,6 @@
 
 
 <script src="./java/index.js"></script>
+<script src="./java/forms.js"></script>
 </body>
 </html>
