@@ -147,23 +147,34 @@ botonclaro.addEventListener('click', function () {
   }
 });
 
-let linkFavs = document.querySelector('a');
+let linkFavs = document.querySelector('.agregar_favs');
 
-let recuperoStorage = localStorage.getItem('listaFavoritos');
-let storageToArray = JSON.parse(recuperoStorage);
+let playlist = [];
+let recuperoStorage = localStorage.getItem('playlist');
+let storageToArray= JSON.parse(recuperoStorage);
 
-let gifFavoritos = [];
 
-if(recuperoStorage !== null){
-    gifFavoritos = storageToArray
+
+if (recuperoStorage != null) {
+    playlist = storageToArray;
 }
-linkFavs.addEventListener('click', function(e){
-  e.preventDefault();
 
-  gifFavoritos.push(id);
-  gifsAJson = JSON.stringify(gifFavoritos);
-  localStorage.setItem("listaFavoritos", gifsAJson)
+if (playlist.includes(id)) {
+    botonFavs.innerText = 'Quitar de Favoritos'
+}
 
-  console.log(localStorage);
+botonFavs.addEventListener("click", function () {
+    if (playlist.includes(id)) {
+        let indice = playlist.indexOf(id)
+        playlist.splice(indice, 1);
+        botonFavs.innerText = 'Agregar a favorito'
+    } else {
+        playlist.push(id);
+        botonFavs.innerText = 'Quitar de favorito'
+    }
+
+    let favsToString = JSON.stringify(playlist);
+    localStorage.setItem('playlist', favsToString)
 })
+
 
