@@ -145,3 +145,33 @@ botonclaro.addEventListener('click', function() {
     h2.style.color = '#FFF';
   }
 });
+
+let linkFavs = document.querySelector('.agregar_favs');
+
+let playlist = [];
+let recuperoStorage = localStorage.getItem('playlist');
+let storageToArray= JSON.parse(recuperoStorage);
+
+
+
+if (recuperoStorage != null) {
+    playlist = storageToArray;
+}
+
+if (playlist.includes(id)) {
+    botonFavs.innerText = 'Quitar de Favoritos'
+}
+
+botonFavs.addEventListener("click", function () {
+    if (playlist.includes(id)) {
+        let indice = playlist.indexOf(id)
+        playlist.splice(indice, 1);
+        botonFavs.innerText = 'Agregar a favorito'
+    } else {
+        playlist.push(id);
+        botonFavs.innerText = 'Quitar de favorito'
+    }
+
+    let favsToString = JSON.stringify(playlist);
+    localStorage.setItem('playlist', favsToString)
+})
