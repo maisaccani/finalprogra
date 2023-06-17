@@ -35,6 +35,9 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${bus
   .then(function(data){
     console.log(data);
   })
+  let qs = location.search;
+let qsToObject = new URLSearchParams(qs);
+let genero_id = qsToObject.get('id');
 
 let urlArtistas = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre/${genero_id}/artists`;
 fetch(urlArtistas)
