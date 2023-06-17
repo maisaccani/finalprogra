@@ -3,7 +3,7 @@ let busqueda = new URLSearchParams(location.search);
 let buscar = busqueda.get('buscar');
 let resultados = document.querySelector(".results");
 let contenido = ''
-titulo.innerHTML += `${buscar}`
+contenido.innerHTML += `${buscar}`
 
 fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
   .then(function(response){
@@ -24,6 +24,9 @@ let value=input.value.length
     window.location = './search-results.html?id=' + input.value
     }
   })
+
+
+
 })
 fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${buscar}`)
   .then(function(response){
