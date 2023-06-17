@@ -21,7 +21,8 @@ let value=input.value.length
     } else if(input.value.length < 3){
       alert("Este campo tiene que tener al menos 3 caracteres")
     } else {
-    window.location = './search-results.html?id=' + input.value
+    // window.location = './search-results.html?id=' + input.value
+    this.submit()
     }
   })
 })
@@ -96,7 +97,6 @@ fetch (url_artist)
 
             <article class="bloque_artista">
                 <a href="./detalle-artista.html?id=${arrayArtistas[i].id}">${arrayArtistas[i].name}</a>
-                <a href="./detalle-album.html?">${arrayArtistas[i].type}</a>
             </article>
          </article>`
 }

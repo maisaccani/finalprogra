@@ -267,26 +267,29 @@ footer {
     margin-bottom: 0px;
 }
 
-@media (max-width: 420px){
-    header div {
-        flex-direction: column;
-    }
+.search{
+   color:white
+}
 
-    header li {
-        padding-top: 5%;
-        padding-bottom: 5%;
-    }
+@media(max-width: 400px) {
 
-    .logo {
-        align-self: center;
-        padding: 0%;
+    .logo{
+        display:block;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        
     }
-
-    .buscador {
-        padding-right: 50px;
+    .nav{
+        width: 100%;
+        display: flex;   
     }
-
-    .bordelupa {
-        display: none;
+    
+    .iniciodos{
+        display:block;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        
     }
 }
