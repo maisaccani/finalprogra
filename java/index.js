@@ -96,7 +96,6 @@ fetch (url_artist)
 
             <article class="bloque_artista">
                 <a href="./detalle-artista.html?id=${arrayArtistas[i].id}">${arrayArtistas[i].name}</a>
-                <a href="./detalle-album.html?">${arrayArtistas[i].type}</a>
             </article>
          </article>`
 }
@@ -132,7 +131,6 @@ fetch (url_album)
 
             <article class="bloque_album">
                 <a href="./detalle-artista.html?id=${arrayAlbum[i].artist.id}">${arrayAlbum[i].artist.name}</a>
-                <a href="./detalle-album.html?">${arrayAlbum[i].artist.type}</a>
             </article>
          </article>`
 }
