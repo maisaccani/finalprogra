@@ -259,3 +259,30 @@ footer {
     width: 200px;
     margin-bottom: 0px;
 }
+
+.search{
+   color:white
+}
+
+@media(max-width: 400px) {
+
+    .logo{
+        display:block;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        
+    }
+    .nav{
+        width: 100%;
+        display: flex;   
+    }
+    
+    .iniciodos{
+        display:block;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        
+    }
+}

@@ -38,6 +38,7 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${bus
 let qs = location.search;
 let qsToObject = new URLSearchParams(qs);
 let album = qsToObject.get('id');
+let id =qsToObject.get('id');
 console.log(album);
 let nombreAlbum = document.querySelector(".nombre_disco");
 let n_artista =document.querySelector(".n_artista");
@@ -58,9 +59,9 @@ fetch(urlAlbum)
   .then(function (data) {
     console.log(data);
     let canciones="";
-let arrayCanciones=data.tracks.data
+let arrayCanciones=data.track.data;
 
-for(i=0;1<arrayCanciones.lenght;i++){
+for(i=0;1<arrayCanciones.length;i++){
   canciones+= `<li><a href="./detalle-album.html?id=${arrayCanciones[i].id}">${arrayCanciones[i].title}</a>`
 }
 console.log(canciones);
@@ -102,6 +103,10 @@ botonclaro.addEventListener('click', function() {
   }
 });
 
+
+
+
+
 let linkFavs = document.querySelector('.agregar_favs');
 
 let playlist = [];
@@ -115,17 +120,17 @@ if (recuperoStorage != null) {
 }
 
 if (playlist.includes(id)) {
-    botonFavs.innerText = 'Quitar de Favoritos'
+    linkFavs.innerText = 'Quitar de Favoritos'
 }
 
-botonFavs.addEventListener("click", function () {
+linkFavs.addEventListener("click", function () {
     if (playlist.includes(id)) {
         let indice = playlist.indexOf(id)
         playlist.splice(indice, 1);
-        botonFavs.innerText = 'Agregar a favorito'
+        linkFavs.innerText = 'Agregar a favorito'
     } else {
         playlist.push(id);
-        botonFavs.innerText = 'Quitar de favorito'
+        linkFavs.innerText = 'Quitar de favorito'
     }
 
     let favsToString = JSON.stringify(playlist);
